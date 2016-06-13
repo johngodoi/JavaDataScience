@@ -1,7 +1,8 @@
 package br.unifesp.henrique.john.research.datascience.experiments.articles;
 
 import java.text.Normalizer;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -11,13 +12,14 @@ import java.util.stream.Stream;
  */
 public class AuthorNamesProcessor {
     public Map<String, Long> countWordsOccurrences(String input) {
-        Map<String, Integer> counts = new HashMap<String, Integer>();
         String normalized = normalizeString(input);
-        String[] words = normalized.split(" ");
-        Map<String, Long> streamResults = Stream.of(words)
-                .filter(p -> p.length()>1)
-                .collect(Collectors.groupingBy(p -> p.toString(), Collectors.counting()));
+        List<String> names = filterByNames(normalized);
+        Map<String, Long> streamResults = names.stream().collect(Collectors.groupingBy(p -> p.toString(), Collectors.counting()));
         return streamResults;
+    }
+
+    private List<String> filterByNames(String normalized) {
+        return Stream.of(normalized.split(" ")).filter(p -> p.length()>1).collect(Collectors.toCollection(ArrayList<String>::new));
     }
 
     private String normalizeString(String input) {
