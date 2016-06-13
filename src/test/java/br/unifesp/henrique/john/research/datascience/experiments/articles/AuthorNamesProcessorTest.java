@@ -14,7 +14,7 @@ public class AuthorNamesProcessorTest {
     @Test
     public void countAuthorNamesOccurrences(){
         AuthorNamesProcessor processor = new AuthorNamesProcessor();
-        Map<String, Integer> counts = processor.countWordsOccurrences("John Joaquim Maria John Márcia John Letícia Vitor John Maria");
+        Map<String, Long> counts = processor.countWordsOccurrences("John Joaquim Maria John Márcia John Letícia Vitor John Maria");
         assertEquals("Quantidade de palavras encontradas", 6, counts.keySet().size());
         assertEquals("Quantidade de ocorrências para John", 4, counts.get("John").longValue());
         assertEquals("Quantidade de ocorrências para John", 2, counts.get("Maria").longValue());
@@ -27,7 +27,7 @@ public class AuthorNamesProcessorTest {
     @Test
     public void countAuthorNamesOccurrencesWithoutSpecials(){
         AuthorNamesProcessor processor = new AuthorNamesProcessor();
-        Map<String, Integer> counts = processor.countWordsOccurrences("John Joaquim Maria John+Márcia John Letícia&Vitor John Maria");
+        Map<String, Long> counts = processor.countWordsOccurrences("John Joaquim Maria John+Márcia John Letícia&Vitor John Maria");
         assertEquals("Quantidade de palavras encontradas", 6, counts.keySet().size());
         assertEquals("Quantidade de ocorrências para John", 4, counts.get("John").longValue());
         assertEquals("Quantidade de ocorrências para John", 2, counts.get("Maria").longValue());
@@ -40,7 +40,7 @@ public class AuthorNamesProcessorTest {
     @Test
     public void countOnlyAuthorWithAtLeastTwoLettersName(){
         AuthorNamesProcessor processor = new AuthorNamesProcessor();
-        Map<String, Integer> counts = processor.countWordsOccurrences("John Joaquim D Maria John+Márcia Y John D Letícia&Vitor John Maria K");
+        Map<String, Long> counts = processor.countWordsOccurrences("John Joaquim D Maria John+Márcia Y John D Letícia&Vitor John Maria K");
         assertEquals("Quantidade de palavras encontradas", 6, counts.keySet().size());
         assertEquals("Quantidade de ocorrências para John", 4, counts.get("John").longValue());
         assertEquals("Quantidade de ocorrências para John", 2, counts.get("Maria").longValue());
