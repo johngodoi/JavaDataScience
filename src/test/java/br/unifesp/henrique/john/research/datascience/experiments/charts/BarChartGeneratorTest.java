@@ -1,8 +1,6 @@
 package br.unifesp.henrique.john.research.datascience.experiments.charts;
 
-import br.unifesp.henrique.john.research.datascience.experiments.articles.AuthorNamesProcessor;
 import br.unifesp.henrique.john.research.datascience.experiments.assertion.PointsAssertion;
-import com.google.common.collect.ImmutableMap;
 import org.junit.Before;
 import org.junit.Test;
 

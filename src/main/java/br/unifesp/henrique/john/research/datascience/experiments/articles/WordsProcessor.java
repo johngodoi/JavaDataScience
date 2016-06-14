@@ -10,11 +10,15 @@ import java.util.stream.Stream;
 /**
  * Created by Lab-Eletrofisio on 13/06/2016.
  */
-public class AuthorNamesProcessor {
-    public Map<String, Long> countWordsOccurrences(String input) {
+public class WordsProcessor {
+    public Map<String, Long> countNamesOccurrences(String input) {
         String normalized = normalizeString(input);
         List<String> names = filterByNames(normalized);
-        Map<String, Long> streamResults = names.stream().collect(Collectors.groupingBy(p -> p.toString(), Collectors.counting()));
+        return countWordsOccurrences(names);
+    }
+
+    public Map<String, Long> countWordsOccurrences(List<String> words) {
+        Map<String, Long> streamResults = words.stream().collect(Collectors.groupingBy(p -> p.toString(), Collectors.counting()));
         return streamResults;
     }
 
