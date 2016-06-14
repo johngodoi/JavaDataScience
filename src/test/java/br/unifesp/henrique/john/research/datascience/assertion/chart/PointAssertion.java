@@ -1,4 +1,4 @@
-package br.unifesp.henrique.john.research.datascience.assertion;
+package br.unifesp.henrique.john.research.datascience.assertion.chart;
 
 import br.unifesp.henrique.john.research.datascience.charts.Point;
 import br.unifesp.henrique.john.research.datascience.utils.ConstantValues;

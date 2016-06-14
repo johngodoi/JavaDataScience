@@ -7,6 +7,9 @@ import javafx.stage.Stage;
 import javafx.scene.chart.*;
 import javafx.scene.Group;
 
+/**
+ * https://docs.oracle.com/javafx/2/charts/jfxpub-charts.htm
+ */
 public class PieChartSample extends Application {
 
     @Override

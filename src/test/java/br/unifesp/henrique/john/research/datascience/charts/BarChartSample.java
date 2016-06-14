@@ -8,6 +8,9 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 
+/**
+ * https://docs.oracle.com/javafx/2/charts/jfxpub-charts.htm
+ */
 public class BarChartSample extends Application {
     final static String austria = "Austria";
     final static String brazil = "Brazil";
