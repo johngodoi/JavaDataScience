@@ -1,8 +1,10 @@
 package br.unifesp.henrique.john.research.datascience.experiments.articles;
 
+import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
@@ -10,13 +12,13 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by Lab-Eletrofisio on 13/06/2016.
  */
-public class WordsProcessorTest {
+public class WordProcessorTest {
 
-    private WordsProcessor processor;
+    private WordProcessor processor;
 
     @Before
     public void setUp() throws Exception {
-        processor = new WordsProcessor();
+        processor = new WordProcessor();
     }
 
     @Test
@@ -53,5 +55,14 @@ public class WordsProcessorTest {
         assertEquals("Quantidade de ocorrências para Marcia", 1, counts.get("Marcia").longValue());
         assertEquals("Quantidade de ocorrências para Diane", 1, counts.get("Diane").longValue());
         assertEquals("Quantidade de ocorrências para Vitor", 1, counts.get("Vitor").longValue());
+    }
+
+    @Test
+    public void countArticlesNamesOccurrences(){
+        ArrayList<String> words = Lists.newArrayList("Journal International of", "Forensics Journal", "Journal International of");
+        Map<String, Long> counts = processor.countWordsOccurrences(words);
+        assertEquals("Quantidade de palavras encontradas", 2, counts.keySet().size());
+        assertEquals("Quantidade de ocorrências para 'Journal International of'", 2, counts.get("Journal International of").longValue());
+        assertEquals("Quantidade de ocorrências para 'Forensics Journal'", 1, counts.get("Forensics Journal").longValue());
     }
 }

@@ -1,5 +1,6 @@
 package br.unifesp.henrique.john.research.datascience.experiments.charts;
 
+import com.google.common.collect.Lists;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.*;
@@ -18,6 +19,7 @@ public class BarChartGenerator {
     private AxisChartTypes xAxisType;
     private String yAxisLabel;
     private AxisChartTypes yAxisType;
+    private List<HorizontalConstantLineMarker> horizontalConstantLineMarkers = Lists.newArrayList();
 
     public BarChartGenerator generatePoints(Map<String, Long> counts) {
         this.points = counts.entrySet().stream()
@@ -77,5 +79,14 @@ public class BarChartGenerator {
 
     public String getTitle() {
         return title;
+    }
+
+    public List<HorizontalConstantLineMarker> getHorizontalConstantLineMarkers() {
+        return horizontalConstantLineMarkers;
+    }
+
+    public BarChartGenerator addHorizontalConstantLineMarker(Double value) {
+        this.horizontalConstantLineMarkers.add(new HorizontalConstantLineMarker(value));
+        return this;
     }
 }

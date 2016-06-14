@@ -1,11 +1,14 @@
 package br.unifesp.henrique.john.research.datascience.experiments.charts;
 
 import br.unifesp.henrique.john.research.datascience.experiments.assertion.PointsAssertion;
+import br.unifesp.henrique.john.research.datascience.experiments.utils.ConstantValues;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by john on 13/06/16.
@@ -42,6 +45,43 @@ public class BarChartGeneratorTest {
         pointsAssertion.assertPointFor("Diane").hasName("Diane").hasValue(10);
         pointsAssertion.assertPointFor("Vitor").hasName("Vitor").hasValue(1);
 
+        //chartGenerator.show();
+    }
+
+    @Test
+    public void add1HorizontalConstantLineMarker() throws Exception {
+
+        BarChartGenerator chartGenerator = new BarChartGenerator()
+                .generatePoints(counts)
+                .setTitle("1 HorizontalConstantLineMarker")
+                .setXAxisLabel("occurrences").setXAxisType(AxisChartTypes.Category)
+                .setYAxisLabel("names").setYAxisType(AxisChartTypes.Number)
+                .addHorizontalConstantLineMarker(3.5);
+
+        List<HorizontalConstantLineMarker> horizontalConstantLineMarkers = chartGenerator.getHorizontalConstantLineMarkers();
+        assertEquals("Valor de marcador horizontal", 3.5, horizontalConstantLineMarkers.get(0).getValue(), ConstantValues.precision);
+
+        //chartGenerator.show();
+    }
+
+    @Test
+    public void add3HorizontalConstantLineMarkers() throws Exception {
+
+        BarChartGenerator chartGenerator = new BarChartGenerator()
+                .generatePoints(counts)
+                .setTitle("1 HorizontalConstantLineMarker")
+                .setXAxisLabel("occurrences").setXAxisType(AxisChartTypes.Category)
+                .setYAxisLabel("names").setYAxisType(AxisChartTypes.Number)
+                .addHorizontalConstantLineMarker(3.)
+                .addHorizontalConstantLineMarker(3.5)
+                .addHorizontalConstantLineMarker(2.5);
+
+        List<HorizontalConstantLineMarker> horizontalConstantLineMarkers = chartGenerator.getHorizontalConstantLineMarkers();
+        assertEquals("Valor de marcador horizontal", 3., horizontalConstantLineMarkers.get(0).getValue(), ConstantValues.precision);
+        assertEquals("Valor de marcador horizontal", 3.5, horizontalConstantLineMarkers.get(1).getValue(), ConstantValues.precision);
+        assertEquals("Valor de marcador horizontal", 2.5, horizontalConstantLineMarkers.get(2).getValue(), ConstantValues.precision);
+
         chartGenerator.show();
     }
+
 }

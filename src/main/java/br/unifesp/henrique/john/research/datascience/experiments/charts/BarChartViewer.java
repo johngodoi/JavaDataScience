@@ -1,9 +1,15 @@
 package br.unifesp.henrique.john.research.datascience.experiments.charts;
 
 import javafx.application.Application;
+import javafx.geometry.Bounds;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
+
+import java.util.List;
 
 /**
  * Created by john on 14/06/16.
@@ -11,6 +17,9 @@ import javafx.stage.Stage;
 public class BarChartViewer extends Application {
 
     private static BarChartGenerator barChartGenerator; //hardcode
+    private Axis yAxis;
+    private Axis xAxis;
+    private Line[] horizontalMarkers;
 
     public static void view(String[] args, final BarChartGenerator barChartGenerator){
         BarChartViewer.barChartGenerator = barChartGenerator;
@@ -19,15 +28,52 @@ public class BarChartViewer extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        initializeMarkers();
         stage.setTitle(barChartGenerator.getTitle());
-        Scene scene  = new Scene(generateChart(),800,600);
+        BarChart<String, Number> chart = generateChart();
+        Node chartArea = chart.lookup(".chart-plot-background");
+
+        Pane pane = new Pane();
+        pane.getChildren().add(chart);
+        pane.getChildren().addAll(horizontalMarkers);
+        Scene scene = new Scene(pane);
         stage.setScene(scene);
         stage.show();
+
+        double value = 5;
+
+        // find chart area Node
+        Bounds chartAreaBounds = chartArea.localToScene(chartArea.getBoundsInLocal());
+        createHorizontalMarker(barChartGenerator.getHorizontalConstantLineMarkers(), chartAreaBounds);
+    }
+
+    private void initializeMarkers() {
+        horizontalMarkers = new Line[barChartGenerator.getHorizontalConstantLineMarkers().size()];
+        for (int i = 0; i < horizontalMarkers.length; i++) {
+            horizontalMarkers[i] = new Line();
+        }
+    }
+
+    private void createHorizontalMarker(List<HorizontalConstantLineMarker> value, Bounds chartAreaBounds) {
+        for (int i = 0; i < value.size(); i++) {
+            Line line = horizontalMarkers[i];
+
+            // remember scene position of chart area
+            double yShift = chartAreaBounds.getMinY();
+            // set x parameters of the horizontalMarkers to chart area bounds
+            line.setStartX(chartAreaBounds.getMinX());
+            line.setEndX(chartAreaBounds.getMaxX());
+            double displayPosition = yAxis.getDisplayPosition(value.get(i).getValue());
+            // update marker
+            line.setStartY(yShift + displayPosition);
+            line.setEndY(yShift + displayPosition);
+        }
     }
 
     public BarChart<String, Number> generateChart() {
-        final Axis xAxis = generateAxis(barChartGenerator.getXAxisType());
-        final Axis yAxis = generateAxis(barChartGenerator.getYAxisType());
+        this.xAxis = generateAxis(barChartGenerator.getXAxisType());
+        this.yAxis = generateAxis(barChartGenerator.getYAxisType());
+
         XYChart.Series series = new XYChart.Series();
         for (Point point : barChartGenerator.getPoints()){
             series.getData().add(new XYChart.Data(point.getName(),point.getValue()));

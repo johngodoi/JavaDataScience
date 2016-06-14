@@ -1,6 +1,7 @@
 package br.unifesp.henrique.john.research.datascience.experiments.assertion;
 
 import br.unifesp.henrique.john.research.datascience.experiments.charts.Point;
+import br.unifesp.henrique.john.research.datascience.experiments.utils.ConstantValues;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,7 +21,7 @@ public class PointAssertion {
     }
 
     public PointAssertion hasValue(double value) {
-        assertEquals("Valor do ponto", value, point.getValue(), 0.00001);
+        assertEquals("Valor do ponto", value, point.getValue(), ConstantValues.precision);
         return this;
     }
 }

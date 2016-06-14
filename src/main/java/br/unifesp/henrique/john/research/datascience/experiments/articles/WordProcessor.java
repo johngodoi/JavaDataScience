@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 /**
  * Created by Lab-Eletrofisio on 13/06/2016.
  */
-public class WordsProcessor {
+public class WordProcessor {
     public Map<String, Long> countNamesOccurrences(String input) {
         String normalized = normalizeString(input);
         List<String> names = filterByNames(normalized);
