@@ -1,6 +1,6 @@
-package br.unifesp.henrique.john.research.datascience.experiments.assertion;
+package br.unifesp.henrique.john.research.datascience.assertion;
 
-import br.unifesp.henrique.john.research.datascience.experiments.charts.Point;
+import br.unifesp.henrique.john.research.datascience.charts.Point;
 
 import java.util.List;
 

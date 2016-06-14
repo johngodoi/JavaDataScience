@@ -1,9 +1,6 @@
-package br.unifesp.henrique.john.research.datascience.experiments.charts;
+package br.unifesp.henrique.john.research.datascience.charts;
 
 import com.google.common.collect.Lists;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.chart.*;
 
 import java.util.List;
 import java.util.Map;

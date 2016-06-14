@@ -1,7 +1,7 @@
-package br.unifesp.henrique.john.research.datascience.experiments.charts;
+package br.unifesp.henrique.john.research.datascience.charts;
 
-import br.unifesp.henrique.john.research.datascience.experiments.assertion.PointsAssertion;
-import br.unifesp.henrique.john.research.datascience.experiments.utils.ConstantValues;
+import br.unifesp.henrique.john.research.datascience.assertion.PointsAssertion;
+import br.unifesp.henrique.john.research.datascience.utils.ConstantValues;
 import org.junit.Before;
 import org.junit.Test;
 

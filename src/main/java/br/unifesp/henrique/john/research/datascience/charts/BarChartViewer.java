@@ -1,4 +1,4 @@
-package br.unifesp.henrique.john.research.datascience.experiments.charts;
+package br.unifesp.henrique.john.research.datascience.charts;
 
 import javafx.application.Application;
 import javafx.geometry.Bounds;

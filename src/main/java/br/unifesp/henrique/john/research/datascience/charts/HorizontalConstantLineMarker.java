@@ -1,4 +1,4 @@
-package br.unifesp.henrique.john.research.datascience.experiments.charts;
+package br.unifesp.henrique.john.research.datascience.charts;
 
 /**
  * Created by Lab-Eletrofisio on 14/06/2016.

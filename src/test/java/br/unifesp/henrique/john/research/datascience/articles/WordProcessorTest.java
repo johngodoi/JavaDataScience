@@ -1,4 +1,4 @@
-package br.unifesp.henrique.john.research.datascience.experiments.articles;
+package br.unifesp.henrique.john.research.datascience.articles;
 
 import com.google.common.collect.Lists;
 import org.junit.Before;

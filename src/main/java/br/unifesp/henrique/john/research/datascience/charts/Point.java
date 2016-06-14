@@ -1,4 +1,4 @@
-package br.unifesp.henrique.john.research.datascience.experiments.charts;
+package br.unifesp.henrique.john.research.datascience.charts;
 
 /**
  * Created by john on 13/06/16.

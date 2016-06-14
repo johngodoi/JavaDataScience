@@ -1,4 +1,4 @@
-package br.unifesp.henrique.john.research.datascience.experiments.articles;
+package br.unifesp.henrique.john.research.datascience.articles;
 
 import java.text.Normalizer;
 import java.util.ArrayList;

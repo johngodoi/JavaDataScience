@@ -1,4 +1,4 @@
-package br.unifesp.henrique.john.research.datascience.experiments.statistical;
+package br.unifesp.henrique.john.research.datascience.statistical;
 
 import java.util.stream.DoubleStream;
 

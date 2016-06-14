@@ -1,6 +1,6 @@
-package br.unifesp.henrique.john.research.datascience.experiments.statistical;
+package br.unifesp.henrique.john.research.datascience.statistical;
 
-import br.unifesp.henrique.john.research.datascience.experiments.utils.ConstantValues;
+import br.unifesp.henrique.john.research.datascience.utils.ConstantValues;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
