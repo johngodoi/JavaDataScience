@@ -81,7 +81,7 @@ public class BarChartGeneratorTest {
         assertEquals("Valor de marcador horizontal", 3.5, horizontalConstantLineMarkers.get(1).getValue(), ConstantValues.precision);
         assertEquals("Valor de marcador horizontal", 2.5, horizontalConstantLineMarkers.get(2).getValue(), ConstantValues.precision);
 
-        chartGenerator.show();
+        //chartGenerator.show();
     }
 
 }

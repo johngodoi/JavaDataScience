@@ -1,6 +1,7 @@
 package br.unifesp.henrique.john.research.datascience.articles;
 
 import br.unifesp.henrique.john.research.datascience.assertion.article.ArticlesAssertion;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
