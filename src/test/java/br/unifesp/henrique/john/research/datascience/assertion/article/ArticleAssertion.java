@@ -3,6 +3,7 @@ package br.unifesp.henrique.john.research.datascience.assertion.article;
 import br.unifesp.henrique.john.research.datascience.articles.Article;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 /**
  * Created by Lab-Eletrofisio on 14/06/2016.
@@ -44,13 +45,49 @@ public class ArticleAssertion {
         return this;
     }
 
-    public ArticleAssertion hasGSRank(int position) {
+    public ArticleAssertion hasGSRank(Integer position) {
         assertEquals("GS Rank", position, this.article.getGSRank());
         return this;
     }
 
-    public ArticleAssertion hasCitesQtt(int qtt) {
+    public ArticleAssertion hasCitesQtt(Integer qtt) {
         assertEquals("Quantidade de citações",qtt, this.article.getCiteQuantity());
+        return this;
+    }
+
+    public ArticleAssertion hasNotTitle() {
+        assertNull("Não deveria ter título",this.article.getTitle());
+        return this;
+    }
+
+    public ArticleAssertion hasNotPublisher() {
+        assertNull("Não deveria ter publicador", this.article.getPublisher());
+        return this;
+    }
+
+    public ArticleAssertion hasNotSource() {
+        assertNull("Não deveria ter fonte", this.article.getSource());
+        return this;
+    }
+
+    public ArticleAssertion hasNoYear() {
+        assertNull("Não deveria ter ano", this.article.getYear());
+        return this;
+    }
+
+
+    public ArticleAssertion hasNotArticleURL() {
+        assertNull("Não deveria ter url do artigo", this.article.getArticleURL());
+        return this;
+    }
+
+    public ArticleAssertion hasNotGSRank() {
+        assertNull("Não deveria ter GS Rank", this.article.getGSRank());
+        return this;
+    }
+
+    public ArticleAssertion hasNotCitesQtt() {
+        assertNull("Não deveria ter quantidade de citações", this.article.getCiteQuantity());
         return this;
     }
 }

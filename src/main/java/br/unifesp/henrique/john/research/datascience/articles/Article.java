@@ -10,8 +10,9 @@ public class Article {
     private String source;
     private String year;
     private String articleURL;
-    private int GSRank;
-    private int citeQuantity;
+    private Integer GSRank;
+    private Integer citeQuantity;
+    private String citesURL;
 
     public String getAuthors() {
         return authors;
@@ -37,11 +38,51 @@ public class Article {
         return articleURL;
     }
 
-    public int getGSRank() {
+    public Integer getGSRank() {
         return GSRank;
     }
 
-    public int getCiteQuantity() {
+    public Integer getCiteQuantity() {
         return citeQuantity;
+    }
+
+    public void setCiteQuantity(String citeQuantity) {
+        this.citeQuantity = Integer.parseInt(citeQuantity);
+    }
+
+    public void setAuthors(String authors) {
+        this.authors = authors;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public void setArticleURL(String articleURL) {
+        this.articleURL = articleURL;
+    }
+
+    public void setGSRank(String GSRank) {
+        this.GSRank = Integer.parseInt(GSRank);
+    }
+
+    public String getCitesURL() {
+        return citesURL;
+    }
+
+    public void setCitesURL(String citesURL) {
+        this.citesURL = citesURL;
     }
 }

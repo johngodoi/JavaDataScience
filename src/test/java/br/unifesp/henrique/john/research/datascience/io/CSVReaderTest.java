@@ -20,7 +20,7 @@ public class CSVReaderTest {
 
     @Test
     public void readWithHeader() throws Exception {
-        FileReader reader = new FileReader("/home/john/IdeaProjects/JavaDataScience/src/test/resources/test.csv");
+        FileReader reader = new FileReader("./src/test/resources/test.csv");
         CSVFormat csvFileFormat = CSVFormat.DEFAULT.withHeader(FILE_HEADER_MAPPING);
         CSVParser csvFileParser = new CSVParser(reader, csvFileFormat);
         List<CSVRecord> csvRecords = csvFileParser.getRecords();

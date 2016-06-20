@@ -1,40 +1,4 @@
-﻿Query: java functional programming language
-Summary: <<
-java functional programming language
-Query date: 2016-06-20
-Papers: 980
-Citations: 208771
-Years: 30
-Cites/year: 6959.03
-Cites/paper: 213.03/69.0/multi (mean/median/mode)
-Cites/author: 99865.54
-Cites/author/year: 3328.85
-Papers/author: 500.54
-Authors/paper: 2.61/2.0/2 (mean/median/mode)
-h-index: 193 (74%)
-g-index: 429 (88%)
-e-index: 343.64
-hc-index: 109
-hI-index: 68.73
-hI,norm: 137
-hI,annual: 4.57
-hm-index: 136.62
-AW-index: 148.12
-AWCR: 21938.78
-AWCRpA: 9586.13
-
-Hirsch a=5.60, m=6.43
-Contemporary ac=7.39
-
-226 paper(s) with 1 author(s)
-293 paper(s) with 2 author(s)
-221 paper(s) with 3 author(s)
-140 paper(s) with 4 author(s)
-81 paper(s) with 5 author(s)
-19 paper(s) with 6 author(s)
->>
-
-Cites,Authors,Title,Year,Source,Publisher,ArticleURL,CitesURL,GSRank,QueryDate,Type
+﻿Cites,Authors,Title,Year,Source,Publisher,ArticleURL,CitesURL,GSRank,QueryDate,Type
 11303,"G Booch","The unified modeling language user guide",2005,"","Pearson Education India","","http://scholar.google.com/scholar?cites=3277758065829707358&as_sdt=2005&sciodt=0,5&hl=en&num=20",742,2016-06-20,"CITATION"
 8649,"G Kiczales, J Lamping, A Mendhekar, C Maeda…","Aspect-oriented programming",1997,"… -oriented programming","Springer","http://link.springer.com/chapter/10.1007/BFb0053381","http://scholar.google.com/scholar?cites=1500031832933382509&as_sdt=2005&sciodt=0,5&hl=en&num=20",7,2016-06-20,""
 8354,"RC Gentleman, VJ Carey…","Bioconductor: open software development for computational biology and bioinformatics",2004,"Genome …","genomebiology.biomedcentral.com","","http://scholar.google.com/scholar?cites=11210161729572299828&as_sdt=2005&sciodt=0,5&hl=en&num=20",802,2016-06-20,"HTML"
