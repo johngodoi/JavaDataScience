@@ -8,6 +8,11 @@ public class ArticleSearchTemplateObject {
     private boolean withTitle;
     private boolean withPublisher;
     private boolean withSource;
+    private boolean withYear;
+    private boolean withArticleURL;
+    private boolean withGSRank;
+    private boolean withCiteQuantity;
+    private boolean withCiteURL;
 
     public boolean isWithAuthors() {
         return withAuthors;
@@ -30,6 +35,32 @@ public class ArticleSearchTemplateObject {
 
     public ArticleSearchTemplateObject withSource() {
         this.withSource = true;
+        return this;
+    }
+
+    public ArticleSearchTemplateObject withYear() {
+        this.withYear = true;
+        return this;
+    }
+
+
+    public ArticleSearchTemplateObject withArticleURL() {
+        this.withArticleURL = true;
+        return this;
+    }
+
+    public ArticleSearchTemplateObject withGSRank() {
+        this.withGSRank = true;
+        return this;
+    }
+
+    public ArticleSearchTemplateObject withCiteQuantity() {
+        this.withCiteQuantity = true;
+        return this;
+    }
+
+    public ArticleSearchTemplateObject withCiteURL() {
+        this.withCiteURL = true;
         return this;
     }
 }
