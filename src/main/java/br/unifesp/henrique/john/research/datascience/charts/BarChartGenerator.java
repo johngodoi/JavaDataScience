@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 /**
  * Created by john on 13/06/16.
  */
-public class BarChartGenerator {
+public class BarChartGenerator implements IChartGenerator {
     private List<Point> points;
     private String title;
     private String xAxisLabel;
@@ -54,6 +54,7 @@ public class BarChartGenerator {
         return this;
     }
 
+    @Override
     public void show() {
         BarChartViewer.view(new String[0], this);
     }

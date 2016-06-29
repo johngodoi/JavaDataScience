@@ -32,9 +32,9 @@ public class BarChartGeneratorTest {
     public void generatePoints() throws Exception {
         BarChartGenerator chartGenerator = new BarChartGenerator()
                 .generatePoints(counts)
-                .setTitle("Authors Frequency")
                 .setXAxisLabel("occurrences").setXAxisType(AxisChartTypes.Category)
-                .setYAxisLabel("names").setYAxisType(AxisChartTypes.Number);
+                .setYAxisLabel("names").setYAxisType(AxisChartTypes.Number)
+                .setTitle("Authors Frequency");
         List<Point> points =
                 chartGenerator.getPoints();
         PointsAssertion pointsAssertion = PointsAssertion.assertPoints(points).hasQtt(6);
