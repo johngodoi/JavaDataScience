@@ -41,7 +41,7 @@ public class StatisticalProcessorTest {
 
     @Test
     public void calculateEuclideanDistance() throws Exception {
-        final double covariance = StatisticalProcessor.calculateEuclideanDistance(new double[]{4, 2, 1, 1, 1, 1},new double[]{4, 2, 1, 1, 1, 1});
+        final double covariance = StatisticalProcessor.calculateEuclideanDistance(new double[]{4, 2, 1, 1, 1, 1},new double[]{5, 2, 1, 1, 1, 1});
         assertEquals("", 0.40824, covariance, ConstantValues.precision);
     }
 }

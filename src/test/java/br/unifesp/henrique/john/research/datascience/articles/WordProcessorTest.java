@@ -23,7 +23,7 @@ public class WordProcessorTest {
 
     @Test
     public void countAuthorNamesOccurrences(){
-        Map<String, Long> counts = processor.countNamesOccurrences("John Joaquim Maria John Márcia John Diane Vitor John Maria");
+        Map<String, Long> counts = processor.countNamesOccurrences("John, Joaquim, Maria, John, Márcia, John, Diane, Vitor, John, Maria");
         assertEquals("Quantidade de palavras encontradas", 6, counts.keySet().size());
         assertEquals("Quantidade de ocorrências para John", 4, counts.get("John").longValue());
         assertEquals("Quantidade de ocorrências para Maria", 2, counts.get("Maria").longValue());
@@ -34,8 +34,17 @@ public class WordProcessorTest {
     }
 
     @Test
+    public void countAuthorNamesTogetherToSurnameOccurrences(){
+        Map<String, Long> counts = processor.countNamesOccurrences("John Godoi, Joaquim XY, Maria El, John Godoi");
+        assertEquals("Quantidade de palavras encontradas", 3, counts.keySet().size());
+        assertEquals("Quantidade de ocorrências para John", 2, counts.get("John Godoi").longValue());
+        assertEquals("Quantidade de ocorrências para Maria", 1, counts.get("Maria El").longValue());
+        assertEquals("Quantidade de ocorrências para Joaquim", 1, counts.get("Joaquim XY").longValue());
+    }
+
+    @Test
     public void countAuthorNamesOccurrencesWithoutSpecials(){
-        Map<String, Long> counts = processor.countNamesOccurrences("John Joaquim Maria John+Márcia John Diane&Vitor John Maria");
+        Map<String, Long> counts = processor.countNamesOccurrences("John, Joaquim, Maria, John,+Márcia, John, Diane,&Vitor, John, Maria");
         assertEquals("Quantidade de palavras encontradas", 6, counts.keySet().size());
         assertEquals("Quantidade de ocorrências para John", 4, counts.get("John").longValue());
         assertEquals("Quantidade de ocorrências para Maria", 2, counts.get("Maria").longValue());
@@ -47,7 +56,7 @@ public class WordProcessorTest {
 
     @Test
     public void countOnlyAuthorWithAtLeastTwoLettersName(){
-        Map<String, Long> counts = processor.countNamesOccurrences("John Joaquim D Maria John+Márcia Y John D Diane&Vitor John Maria K");
+        Map<String, Long> counts = processor.countNamesOccurrences("John, Joaquim, D, Maria, John,+Márcia, Y, John, D, Diane,&Vitor, John, Maria, K");
         assertEquals("Quantidade de palavras encontradas", 6, counts.keySet().size());
         assertEquals("Quantidade de ocorrências para John", 4, counts.get("John").longValue());
         assertEquals("Quantidade de ocorrências para Maria", 2, counts.get("Maria").longValue());
