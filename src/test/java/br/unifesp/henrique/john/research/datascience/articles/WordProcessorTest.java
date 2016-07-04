@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
@@ -36,6 +37,16 @@ public class WordProcessorTest {
     @Test
     public void countAuthorNamesTogetherToSurnameOccurrences(){
         Map<String, Long> counts = processor.countNamesOccurrences("John Godoi, Joaquim XY, Maria El, John Godoi");
+        assertEquals("Quantidade de palavras encontradas", 3, counts.keySet().size());
+        assertEquals("Quantidade de ocorrências para John", 2, counts.get("John Godoi").longValue());
+        assertEquals("Quantidade de ocorrências para Maria", 1, counts.get("Maria El").longValue());
+        assertEquals("Quantidade de ocorrências para Joaquim", 1, counts.get("Joaquim XY").longValue());
+    }
+
+    @Test
+    public void countAuthorNamesTogetherToSurnameOccurrencesFromList(){
+        ArrayList<String> names = Lists.newArrayList("John Godoi, Joaquim XY", "Maria El, John Godoi");
+        Map<String, Long> counts = processor.countNamesOccurrences(names);
         assertEquals("Quantidade de palavras encontradas", 3, counts.keySet().size());
         assertEquals("Quantidade de ocorrências para John", 2, counts.get("John Godoi").longValue());
         assertEquals("Quantidade de ocorrências para Maria", 1, counts.get("Maria El").longValue());
