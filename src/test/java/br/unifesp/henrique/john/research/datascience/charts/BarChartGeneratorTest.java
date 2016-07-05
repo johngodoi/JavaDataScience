@@ -5,10 +5,14 @@ import br.unifesp.henrique.john.research.datascience.utils.ConstantValues;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by john on 13/06/16.
@@ -81,7 +85,9 @@ public class BarChartGeneratorTest {
         assertEquals("Valor de marcador horizontal", 3.5, horizontalConstantLineMarkers.get(1).getValue(), ConstantValues.precision);
         assertEquals("Valor de marcador horizontal", 2.5, horizontalConstantLineMarkers.get(2).getValue(), ConstantValues.precision);
 
-        //chartGenerator.show();
+        chartGenerator.show();
+
+        assertTrue("Arquivo de imagem do gráfico criado",Files.exists(Paths.get(chartGenerator.getTitle()+".jpg")));
     }
 
 }
