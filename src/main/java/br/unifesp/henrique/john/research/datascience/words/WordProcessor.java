@@ -1,4 +1,4 @@
-package br.unifesp.henrique.john.research.datascience.articles;
+package br.unifesp.henrique.john.research.datascience.words;
 
 import java.text.Normalizer;
 import java.util.ArrayList;
@@ -14,24 +14,26 @@ public class WordProcessor {
 
     private final int minimumOfCharsToConsiderWord = 2;
 
-    public Map<String, Long> countNamesOccurrences(String names) {
+    public Map<String, Long> countNamesOccurrences(String names, boolean ignoreCase) {
         String normalized = normalizeString(names);
         List<String> nameList = splitWords(normalized,",");
-        return countWordsOccurrences(nameList);
+        return countWordsOccurrences(nameList, ignoreCase);
     }
 
-    public Map<String, Long> splitAndCountWordsOccurrences(List<String> words, String charToSplit) {
+    public Map<String, Long> splitAndCountWordsOccurrences(List<String> words, String charToSplit, boolean ignoreCase) {
         String allWords = "";
         for(String author:words){
             allWords+=(charToSplit+author);
         }
         String normalized = normalizeString(allWords);
         List<String> names = splitWords(normalized,charToSplit);
-        return countWordsOccurrences(names);
+        return countWordsOccurrences(names, ignoreCase);
     }
 
-    public Map<String, Long> countWordsOccurrences(List<String> words) {
-        Map<String, Long> streamResults = words.stream().map(String::trim).collect(Collectors.groupingBy(p -> (p!=null)?p.toString():"", Collectors.counting()));
+    public Map<String, Long> countWordsOccurrences(List<String> words, boolean ignoreCase) {
+        Stream<String> wordsStream = words.stream().map(String::trim);
+        if(ignoreCase) wordsStream = wordsStream.map(String::toLowerCase);
+        Map<String, Long> streamResults = wordsStream.collect(Collectors.groupingBy(p -> (p!=null)?p.toString():"", Collectors.counting()));
         return streamResults;
     }
 
