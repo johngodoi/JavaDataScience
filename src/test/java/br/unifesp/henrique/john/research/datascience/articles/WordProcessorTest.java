@@ -46,7 +46,7 @@ public class WordProcessorTest {
     @Test
     public void countAuthorNamesTogetherToSurnameOccurrencesFromList(){
         ArrayList<String> names = Lists.newArrayList("John Godoi, Joaquim XY", "Maria El, John Godoi");
-        Map<String, Long> counts = processor.countNamesOccurrences(names);
+        Map<String, Long> counts = processor.splitAndCountWordsOccurrences(names,",");
         assertEquals("Quantidade de palavras encontradas", 3, counts.keySet().size());
         assertEquals("Quantidade de ocorrências para John", 2, counts.get("John Godoi").longValue());
         assertEquals("Quantidade de ocorrências para Maria", 1, counts.get("Maria El").longValue());
