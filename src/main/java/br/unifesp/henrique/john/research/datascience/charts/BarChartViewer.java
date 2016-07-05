@@ -27,10 +27,17 @@ public class BarChartViewer extends Application {
     private Axis yAxis;
     private Axis xAxis;
     private Line[] horizontalMarkers;
+    private BarChart<String, Number> chart;
 
     public static void view(String[] args, final BarChartGenerator barChartGenerator){
         BarChartViewer.barChartGenerator = barChartGenerator;
         launch(args);
+    }
+
+    @Override
+    public void stop() throws Exception {
+        saveAsJPG(chart,barChartGenerator.getTitle());
+        super.stop();
     }
 
     @Override
@@ -47,14 +54,13 @@ public class BarChartViewer extends Application {
         stage.setScene(scene);
         stage.show();
 
-        double value = 5;
-
         // find chart area Node
         Bounds chartAreaBounds = chartArea.localToScene(chartArea.getBoundsInLocal());
         createHorizontalMarker(barChartGenerator.getHorizontalConstantLineMarkers(), chartAreaBounds);
-
-        saveAsJPG(chart,barChartGenerator.getTitle());
+        this.chart = chart;
     }
+
+
 
     private void initializeMarkers() {
         horizontalMarkers = new Line[barChartGenerator.getHorizontalConstantLineMarkers().size()];
@@ -105,9 +111,8 @@ public class BarChartViewer extends Application {
         }
     }
 
-
-    public void saveAsJPG(Chart lineChart, String path) {
-        WritableImage image = lineChart.snapshot(new SnapshotParameters(), null);
+    public void saveAsJPG(Chart chart, String path) {
+        WritableImage image = chart.snapshot(new SnapshotParameters(), null);
         File file = new File(path+"."+ FORMAT_NAME);
         try {
             ImageIO.write(SwingFXUtils.fromFXImage(image, null), FORMAT_NAME, file);

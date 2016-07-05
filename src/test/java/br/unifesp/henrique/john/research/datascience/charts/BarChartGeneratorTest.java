@@ -88,6 +88,7 @@ public class BarChartGeneratorTest {
         chartGenerator.show();
 
         assertTrue("Arquivo de imagem do gráfico criado",Files.exists(Paths.get(chartGenerator.getTitle()+".jpg")));
+        //is missing description of each bar and others changes
     }
 
 }
