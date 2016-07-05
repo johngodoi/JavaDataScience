@@ -36,7 +36,7 @@ public class BarChartViewer extends Application {
 
     @Override
     public void stop() throws Exception {
-        saveAsJPG(chart,barChartGenerator.getTitle());
+        saveAsJPG();
         super.stop();
     }
 
@@ -111,9 +111,9 @@ public class BarChartViewer extends Application {
         }
     }
 
-    public void saveAsJPG(Chart chart, String path) {
+    public void saveAsJPG() {
         WritableImage image = chart.snapshot(new SnapshotParameters(), null);
-        File file = new File(path+"."+ FORMAT_NAME);
+        File file = new File(barChartGenerator.getTitle()+"."+ FORMAT_NAME);
         try {
             ImageIO.write(SwingFXUtils.fromFXImage(image, null), FORMAT_NAME, file);
         } catch (IOException e) {
