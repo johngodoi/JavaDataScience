@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class BarChartViewer extends Application {
 
-    public static final String FORMAT_NAME = "jpg";
+    public static final String FORMAT_NAME = "png";
     private static BarChartGenerator barChartGenerator; //hardcode
     private Axis yAxis;
     private Axis xAxis;
@@ -36,7 +36,7 @@ public class BarChartViewer extends Application {
 
     @Override
     public void stop() throws Exception {
-        saveAsJPG();
+        saveAsPNG();
         super.stop();
     }
 
@@ -111,7 +111,7 @@ public class BarChartViewer extends Application {
         }
     }
 
-    public void saveAsJPG() {
+    public void saveAsPNG() {
         WritableImage image = chart.snapshot(new SnapshotParameters(), null);
         File file = new File(barChartGenerator.getTitle()+"."+ FORMAT_NAME);
         try {
