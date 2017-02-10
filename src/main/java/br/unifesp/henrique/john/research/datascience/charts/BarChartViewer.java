@@ -1,6 +1,5 @@
 package br.unifesp.henrique.john.research.datascience.charts;
 
-import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Bounds;
 import javafx.scene.Node;
@@ -20,13 +19,14 @@ import java.util.List;
 /**
  * Created by john on 14/06/16.
  */
-public class BarChartViewer extends Application {
+public class BarChartViewer extends ChartViewer {
 
     public static final String FORMAT_NAME = "png";
     private static BarChartGenerator barChartGenerator; //hardcode
     private Axis yAxis;
     private Axis xAxis;
     private Line[] horizontalMarkers;
+    private Line[] verticalMarkers;
     private BarChart<String, Number> chart;
 
     public static void view(String[] args, final BarChartGenerator barChartGenerator){
@@ -50,6 +50,7 @@ public class BarChartViewer extends Application {
         Pane pane = new Pane();
         pane.getChildren().add(chart);
         pane.getChildren().addAll(horizontalMarkers);
+        pane.getChildren().addAll(verticalMarkers);
         Scene scene = new Scene(pane);
         stage.setScene(scene);
         stage.show();
@@ -60,16 +61,19 @@ public class BarChartViewer extends Application {
         this.chart = chart;
     }
 
-
-
     private void initializeMarkers() {
         horizontalMarkers = new Line[barChartGenerator.getHorizontalConstantLineMarkers().size()];
         for (int i = 0; i < horizontalMarkers.length; i++) {
             horizontalMarkers[i] = new Line();
         }
+
+        verticalMarkers = new Line[barChartGenerator.getVerticalConstantLineMarkers().size()];
+        for (int i = 0; i < verticalMarkers.length; i++) {
+            verticalMarkers[i] = new Line();
+        }
     }
 
-    private void createHorizontalMarker(List<HorizontalConstantLineMarker> value, Bounds chartAreaBounds) {
+    protected void createHorizontalMarker(List<HorizontalConstantLineMarker> value, Bounds chartAreaBounds) {
         for (int i = 0; i < value.size(); i++) {
             Line line = horizontalMarkers[i];
 

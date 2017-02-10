@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +19,7 @@ import static org.junit.Assert.assertTrue;
 public class BarChartGeneratorTest {
 
     private HashMap<String, Long> counts;
+    private HashMap<Long, Long> hist;
 
     @Before
     public void setUp() throws Exception {
@@ -30,6 +30,13 @@ public class BarChartGeneratorTest {
         counts.put("Marcia",1l);
         counts.put("Diane",10l);
         counts.put("Vitor",1l);
+        hist = new HashMap<>();
+        hist.put(0l,4l);
+        hist.put(1l,2l);
+        hist.put(2l,1l);
+        hist.put(3l,1l);
+        hist.put(4l,10l);
+        hist.put(5l,1l);
     }
 
     @Test
@@ -51,6 +58,8 @@ public class BarChartGeneratorTest {
 
         //chartGenerator.show();
     }
+
+
 
     @Test
     public void add1HorizontalConstantLineMarker() throws Exception {

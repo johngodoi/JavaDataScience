@@ -17,6 +17,7 @@ public class BarChartGenerator implements IChartGenerator {
     private String yAxisLabel;
     private AxisChartTypes yAxisType;
     private List<HorizontalConstantLineMarker> horizontalConstantLineMarkers = Lists.newArrayList();
+    private List<VerticalConstantLineMarker> verticalConstantLineMarkers = Lists.newArrayList();
 
     public BarChartGenerator generatePoints(Map<String, Long> counts) {
         this.points = counts.entrySet().stream()
@@ -85,6 +86,15 @@ public class BarChartGenerator implements IChartGenerator {
 
     public BarChartGenerator addHorizontalConstantLineMarker(Double value) {
         this.horizontalConstantLineMarkers.add(new HorizontalConstantLineMarker(value));
+        return this;
+    }
+
+    public List<VerticalConstantLineMarker> getVerticalConstantLineMarkers() {
+        return verticalConstantLineMarkers;
+    }
+
+    public BarChartGenerator addVerticalConstantLineMarker(Double value) {
+        this.verticalConstantLineMarkers.add(new VerticalConstantLineMarker(value));
         return this;
     }
 }
