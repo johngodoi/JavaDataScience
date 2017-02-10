@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 
 /**
  * @web http://java-buddy.blogspot.com
+ * vertical marke
+ * http://stackoverflow.com/questions/28952133/how-to-add-two-vertical-lines-with-javafx-linechart
  */
 public class JavaFX_HistogramSample extends Application {
 
